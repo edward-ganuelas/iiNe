@@ -11,7 +11,8 @@ export default mergeConfig(
       root: fileURLToPath(new URL('./', import.meta.url)),
       watch: false,
       coverage: {
-        provider: 'istanbul'
+        provider: 'istanbul',
+        exclude: ['src/stories/**', 'components/**.stories.js']
       }
     }
   })

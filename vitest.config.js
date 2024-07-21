@@ -12,7 +12,7 @@ export default mergeConfig(
       watch: false,
       coverage: {
         provider: 'istanbul',
-        exclude: ['src/stories/**', 'components/**.stories.js']
+        exclude: ["src/stories/*", ".eslintrc.cjs", ".storybook/*", "test/*", "dist/", "**/*.stories.js", "src/main.js"]
       }
     }
   })

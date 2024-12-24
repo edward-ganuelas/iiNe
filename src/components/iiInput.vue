@@ -17,6 +17,10 @@ const props = defineProps({
     },
     name: {
         type: String
+    },
+    dataTestId: {
+        type: [String, Object],
+        default: () => null
     }
 })
 const emits = defineEmits(['onChange']);
@@ -37,5 +41,6 @@ const { classes } = useCssClass(props, defaultClasses);
     <input
         :class="classes"
         :aria-labelledby="ariaLabelledById"
-        :type="inputType" @change="() => emits('onChange')"/>
+        :type="inputType" @change="() => emits('onChange')"
+        :data-test-id="dataTestId"/>
 </template>

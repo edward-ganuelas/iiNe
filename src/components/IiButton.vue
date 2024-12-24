@@ -15,6 +15,10 @@ const props = defineProps({
         type: Array,
         default: () => []
     },
+    dataTestId: {
+        type: [String, Object],
+        default: () => null
+    }
 })
 
 
@@ -35,6 +39,7 @@ const { classes } = useCssClass(props, defaultClasses)
     :aria-label="props.ariaLabel"
     @click="() => emits('onClick')"
     :class="classes"
+    :data-test-id="dataTestId"
     >
     {{ props.label }}
     </button>

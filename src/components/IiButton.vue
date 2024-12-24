@@ -1,5 +1,6 @@
 <script setup>
-import { computed } from 'vue'
+import { useCssClass } from '@/composables/useCssClass';
+
 const emits = defineEmits(['onClick'])
 const props = defineProps({
     label: {
@@ -11,36 +12,25 @@ const props = defineProps({
         required: true
     },
     classes: {
-        type: Array
+        type: Array,
+        default: () => []
     },
     primary: {
         type: Boolean,
     }
 })
-const _defaultClasses = [
+
+
+const defaultClasses = Object.freeze([
     'py-2',
     'px-7',
-    'rounded-lg'
-]
+    'rounded-full',
+    'border-neutral-700',
+    'border'
+]);
 
-const defaultClasses = computed(() => {
-    const defaultClasses = [
-        ..._defaultClasses
-    ]
-    if (props?.primary === true) {
-        defaultClasses.push('bg-blue')
-    } else {
-        defaultClasses.push('bg-orange')
-    }
+const { classes } = useCssClass(props, defaultClasses)
 
-    return defaultClasses
-})
-const classes = computed(() => {
-    return [
-        ...defaultClasses.value,
-        props.classes
-    ]
-})
 </script>
 
 <template>

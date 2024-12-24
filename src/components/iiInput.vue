@@ -1,12 +1,13 @@
 <script setup>
-import { computed } from 'vue'
+import { useCssClass } from '@/composables/useCssClass';
 const props = defineProps({
     inputType: {
         type: String,
         default: 'text'
     },
     classes: {
-        type: Array
+        type: Array,
+        default: () => []
     },
     ariaLabelledById: {
         type: String
@@ -18,26 +19,23 @@ const props = defineProps({
         type: String
     }
 })
-const emits = defineEmits(['onChange'])
-const defaultClasses = [
+const emits = defineEmits(['onChange']);
+
+const defaultClasses = Object.freeze([
     'border-black',
     'rounded',
     'border-solid',
     'border',
     'p-1'
-]
+])
 
-const computedClasses = computed(() => {
-    return [
-        ...defaultClasses,
-        props?.classes
-    ]
-})
+const { classes } = useCssClass(props, defaultClasses);
+
 </script>
 
 <template>
     <input
-        :class="computedClasses"
+        :class="classes"
         :aria-labelledby="ariaLabelledById"
         :type="inputType" @change="() => emits('onChange')"/>
 </template>

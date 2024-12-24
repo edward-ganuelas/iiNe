@@ -11,8 +11,7 @@ export const Default = {
     args: {
         label: 'Test',
         ariaLabel: 'Button click',
-        primary: true,
-        onClick: fn()
+        onClick: fn(),
     }
 }
 
@@ -20,7 +19,6 @@ export const Secondary = {
     args: {
         label: 'Test',
         ariaLabel: 'Button click',
-        primary: false,
         onClick: fn()
     }
 }

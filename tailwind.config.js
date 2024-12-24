@@ -8,8 +8,8 @@ export default {
   theme: {
     extend: {},
     colors: {
-      'blue': '#0066FF',
-      'orange': '#f90'
+      // 'blue': '#0066FF',
+      // 'orange': '#f90'
     }
   },
   plugins: [],

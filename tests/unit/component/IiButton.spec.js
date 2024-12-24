@@ -15,38 +15,6 @@ test('it mounts', () => {
     expect(wrapper.attributes('aria-label')).toBe('test aria label')
 })
 
-test('primary button color would be blue', () => {
-    const wrapper = mount(IiButton, {
-        props: {
-            label: 'test',
-            ariaLabel: 'test aria label',
-            primary: true
-        }
-    })
-
-    assert.isOk(wrapper)
-    expect(wrapper.text()).toContain('test')
-    expect(wrapper.attributes('aria-label')).toBe('test aria label')
-    expect(wrapper.classes()).toContain('bg-blue')
-    expect(wrapper.classes('bg-orange')).toBe(false)
-})
-
-test('primary false button color should be orange', () => {
-    const wrapper = mount(IiButton, {
-        props: {
-            label: 'test',
-            ariaLabel: 'test aria label',
-            primary: false
-        }
-    })
-
-    assert.isOk(wrapper)
-    expect(wrapper.text()).toContain('test')
-    expect(wrapper.attributes('aria-label')).toBe('test aria label')
-    expect(wrapper.classes('bg-blue')).toBe(false)
-    expect(wrapper.classes('bg-orange')).toBe(true)
-})
-
 test('prop classes should be added to the button\'s class', () => {
     const wrapper = mount(IiButton, {
         props: {

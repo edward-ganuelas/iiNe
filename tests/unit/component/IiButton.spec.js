@@ -20,7 +20,6 @@ test('prop classes should be added to the button\'s class', () => {
         props: {
             label: 'test',
             ariaLabel: 'test aria label',
-            primary: false,
             classes: ['testClass']
         }
     })
@@ -28,8 +27,6 @@ test('prop classes should be added to the button\'s class', () => {
     assert.isOk(wrapper)
     expect(wrapper.text()).toContain('test')
     expect(wrapper.attributes('aria-label')).toBe('test aria label')
-    expect(wrapper.classes('bg-blue')).toBe(false)
-    expect(wrapper.classes('bg-orange')).toBe(true)
     expect(wrapper.classes('testClass')).toBe(true)
 })
 

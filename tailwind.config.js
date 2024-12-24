@@ -6,11 +6,12 @@ export default {
     "./bundle.js"
   ],
   theme: {
-    extend: {},
-    colors: {
-      // 'blue': '#0066FF',
-      // 'orange': '#f90'
-    }
+    extend: {
+      colors: {
+        'blue': '#0066FF',
+        'orange': '#f90'
+      }
+    },
   },
   plugins: [],
 }

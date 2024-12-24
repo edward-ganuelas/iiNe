@@ -15,9 +15,6 @@ const props = defineProps({
         type: Array,
         default: () => []
     },
-    primary: {
-        type: Boolean,
-    }
 })
 
 

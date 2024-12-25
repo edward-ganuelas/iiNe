@@ -33,6 +33,8 @@ const defaultClasses = computed(() => {
     ];
     if (props.hideListStyle === false) {
         defaultClasses.push(props.listType === 'ul' ? 'list-disc' : 'list-decimal')
+    } else {
+        defaultClasses.push('list-none')
     }
     return [...defaultClasses]
 })

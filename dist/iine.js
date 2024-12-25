@@ -1,5 +1,13 @@
-import { computed as i, openBlock as c, createElementBlock as p, normalizeClass as d, toDisplayString as y } from "vue";
-const b = ["aria-label"], C = {
+import { computed as b, openBlock as i, createElementBlock as d, normalizeClass as o, unref as u, toDisplayString as y } from "vue";
+function c(e, t) {
+  return {
+    classes: b(() => [
+      ...t,
+      e.classes
+    ])
+  };
+}
+const m = ["aria-label", "data-test-id"], C = {
   __name: "IiButton",
   props: {
     label: {
@@ -11,34 +19,31 @@ const b = ["aria-label"], C = {
       required: !0
     },
     classes: {
-      type: Array
+      type: Array,
+      default: () => []
     },
-    primary: {
-      type: Boolean
+    dataTestId: {
+      type: [String, Object],
+      default: () => null
     }
   },
   emits: ["onClick"],
-  setup(a, { emit: n }) {
-    const s = n, e = a, l = [
+  setup(e, { emit: t }) {
+    const n = t, a = e, r = Object.freeze([
       "py-2",
       "px-7",
-      "rounded-lg"
-    ], r = i(() => {
-      const t = [
-        ...l
-      ];
-      return (e == null ? void 0 : e.primary) === !0 ? t.push("bg-blue") : t.push("bg-orange"), t;
-    }), o = i(() => [
-      ...r.value,
-      e.classes
-    ]);
-    return (t, u) => (c(), p("button", {
-      "aria-label": e.ariaLabel,
-      onClick: u[0] || (u[0] = () => s("onClick")),
-      class: d(o.value)
-    }, y(e.label), 11, b));
+      "rounded-full",
+      "border-neutral-700",
+      "border"
+    ]), { classes: l } = c(a, r);
+    return (p, s) => (i(), d("button", {
+      "aria-label": a.ariaLabel,
+      onClick: s[0] || (s[0] = () => n("onClick")),
+      class: o(u(l)),
+      "data-test-id": e.dataTestId
+    }, y(a.label), 11, m));
   }
-}, m = ["aria-labelledby", "type"], f = {
+}, f = ["aria-labelledby", "type", "data-test-id"], I = {
   __name: "iiInput",
   props: {
     inputType: {
@@ -46,7 +51,8 @@ const b = ["aria-label"], C = {
       default: "text"
     },
     classes: {
-      type: Array
+      type: Array,
+      default: () => []
     },
     ariaLabelledById: {
       type: String
@@ -56,29 +62,31 @@ const b = ["aria-label"], C = {
     },
     name: {
       type: String
+    },
+    dataTestId: {
+      type: [String, Object],
+      default: () => null
     }
   },
   emits: ["onChange"],
-  setup(a, { emit: n }) {
-    const s = a, e = n, l = [
+  setup(e, { emit: t }) {
+    const n = e, a = t, r = Object.freeze([
       "border-black",
       "rounded",
       "border-solid",
       "border",
       "p-1"
-    ], r = i(() => [
-      ...l,
-      s == null ? void 0 : s.classes
-    ]);
-    return (o, t) => (c(), p("input", {
-      class: d(r.value),
-      "aria-labelledby": a.ariaLabelledById,
-      type: a.inputType,
-      onChange: t[0] || (t[0] = () => e("onChange"))
-    }, null, 42, m));
+    ]), { classes: l } = c(n, r);
+    return (p, s) => (i(), d("input", {
+      class: o(u(l)),
+      "aria-labelledby": e.ariaLabelledById,
+      type: e.inputType,
+      onChange: s[0] || (s[0] = () => a("onChange")),
+      "data-test-id": e.dataTestId
+    }, null, 42, f));
   }
 };
 export {
   C as IiButton,
-  f as iiInput
+  I as iiInput
 };

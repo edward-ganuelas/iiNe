@@ -72,7 +72,7 @@ export const H5 = {
 
 export const H6 = {
     args: {
-        headingType: 'H6',
+        headingType: '6',
     },
     render: (args) => ({
         components: { IiHeaders },

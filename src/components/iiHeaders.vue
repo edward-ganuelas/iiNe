@@ -10,7 +10,10 @@ const props = defineProps({
     headingType: {
         type: String,
         required: true,
-        default: '1'
+        default: '1',
+        validator(value) {
+            return ['1', '2', '3', '4', '5', '6'].includes(value);
+        }
     },
     dataTestId: {
         type: [String, Object],

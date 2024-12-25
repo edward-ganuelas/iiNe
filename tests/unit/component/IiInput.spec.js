@@ -1,9 +1,9 @@
 import { assert, test } from 'vitest'
-import iiInput from '@/components/iiInput.vue'
+import IiInput from '@/components/iiInput.vue'
 import { mount } from '@vue/test-utils'
 
 test('it mounts', () => {
-    const wrapper = mount(iiInput, {
+    const wrapper = mount(IiInput, {
         props: {
             label: 'test',
             ariaLabel: 'test aria label'

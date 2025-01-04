@@ -201,5 +201,5 @@ export {
   _ as IiHeaders,
   $ as IiInput,
   j as IiList,
-  B as iiParagraph
+  B as IiParagraph
 };
